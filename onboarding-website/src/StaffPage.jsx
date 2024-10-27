@@ -1,9 +1,9 @@
 import React from 'react';
 
-function StudentsPage() {
+function StaffPage() {
   return (
   <div>
-    <h1>Welcome to the Student Onboarding Page!</h1>
+    <h1>Welcome to the Staff Onboarding Page!</h1>
     <p>
         This onboarding guide will assist you with any information
         that you will need to be set up and ready to go!
@@ -12,4 +12,4 @@ function StudentsPage() {
   )
 }
 
-export default StudentsPage
+export default StaffPage

@@ -1,26 +1,18 @@
-import React from 'react'
-import Header from './Header.jsx'
-import Card from './Card.jsx'
-import tamiuLogo from './assets/tamiu logo.jpeg'
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import StaffPage from './StudentsPage.jsx';  // The Staff page component
-
-
+import React from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Header from './Header';
+import Card from './Card';
+import StaffPage from './StaffPage';
+import StudentsPage from './StudentsPage';
+import ProfessorsPage from './ProfessorsPage';
+import tamiuLogo from './assets/tamiu logo.jpeg';
 
 function App() {
+  const navigate = useNavigate(); // useNavigate should work within Router context
 
-  
-  const handleStudentClick = () => {
-    window.open("https://www.tamiu.edu/current.shtml", "_blank");
-  };
-
-  const handleProfessorClick = () => {
-    window.open("https://www.tamiu.edu/adminis/ohr/resourcesforhiringsupervisors.shtml", "_blank");
-  };
-
-  const handleStaffClick = () => {
-    window.open("https://www.example.com/staff", "_blank");
-  };
+  const handleStudentClick = () => navigate("/students");
+  const handleProfessorClick = () => navigate("/professors");
+  const handleStaffClick = () => navigate("/staff");
 
   return (
     <>
@@ -43,13 +35,20 @@ function App() {
           />
           <Card
             title="Staff"
-            text="This is for Staff and helps staff"
+            text="This is for staff and helps staff"
             image={tamiuLogo}
             buttonText="Learn More"
             onButtonClick={handleStaffClick}
           />
         </div>
       </div>
+
+      {/* Routes for navigation */}
+      <Routes>
+        <Route path="/students" element={<StudentsPage />} />
+        <Route path="/professors" element={<ProfessorsPage />} />
+        <Route path="/staff" element={<StaffPage />} />
+      </Routes>
     </>
   );
 }
